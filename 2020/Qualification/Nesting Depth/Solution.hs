@@ -10,6 +10,9 @@ solveLevel lvl (c:chars)
 
 solveLevel lvl [] = replicate lvl ')'
 
+solveCase :: [Char] -> [Char]
+solveCase str = solveLevel 0 str
+
 -- IO Section
 readInt :: IO Int
 readInt = do
@@ -19,7 +22,7 @@ readInt = do
 processCase :: Int -> IO ()
 processCase caseNum = do
     caseStr <- getLine
-    putStrLn $ "Case #" ++ (show caseNum) ++ ": " ++ (solveLevel 0 caseStr)
+    putStrLn $ "Case #" ++ (show caseNum) ++ ": " ++ (solveCase caseStr)
 
 -- Entry point.
 main :: IO ()
